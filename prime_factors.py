@@ -27,18 +27,18 @@ def prime_factor_it(n,prime_list=None):
 
 		if current_prime > math.sqrt(n):
 			break
-		
+
 		if n_cur % current_prime == 0:
 			acc.append(current_prime)
 			n_cur = n_cur/current_prime
 		else:
 			x += 1
-	
+
 	if n_cur > 2:
 		acc.append(n_cur)
-	
+
 	return acc
-		
+
 def sieve_of_eratosthenes(n, n_cur=2, collector=None):
 	collector = collector if collector else range(2,n+1)
 	if n_cur >= n:
@@ -49,7 +49,7 @@ def sieve_of_eratosthenes(n, n_cur=2, collector=None):
 def sieve_of_e_it(n):
 	nums = tuple(range(2,n+1))
 	is_composite = [False] * len(nums)
-	
+
 	for x in range(0, len(nums)):
 		cur_num, cur_status = nums[x], is_composite[x]
 		if not cur_status:
@@ -58,9 +58,9 @@ def sieve_of_e_it(n):
 				if not other_stat and other_num % cur_num == 0:
 					is_composite[y] = True
 	return [ nums[x] for x in range(0, len(nums)) if not is_composite[x] ]
-	
-	
-		
+
+
+
 
 def sieve_of_atkin():
 	pass
@@ -69,6 +69,6 @@ if __name__ == "__main__":
 	import sys
 	sys.setrecursionlimit(20000)
 	print prime_factor_it(75321113)
-	print prime_factor(75321113)
-	
-	#print sieve_of_e_it(75000)
+	# print prime_factor(75321113)
+
+	print sieve_of_e_it(1000)
